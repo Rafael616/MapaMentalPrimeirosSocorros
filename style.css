@@ -1,0 +1,349 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: #f4f7f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+h1 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+body > p {
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 90%;
+    margin: 0;
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 10px 0;
+    text-align: center;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.map-instruction {
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    z-index: 2;
+}
+
+.map {
+     position: relative;
+    width: 100%;
+    flex: 1;
+    margin: 0;
+    z-index: 2; 
+}
+
+.map-button {
+    padding: 20px 30px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.map-button:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    transition: transform 0.2s;
+}
+
+.all-click {
+    padding: 20px 30px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: grab;
+    position: absolute;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0;
+    transform: scale(0.5);
+    user-select: none;
+    touch-action: none;
+}
+
+.all-click:hover {
+    transform: scale(1.08);
+}
+
+.all-buttons {
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.all-buttons.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.all-buttons.open .all-click {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.all-buttons.open .all-click:hover {
+    transform: scale(1.08);
+}
+
+
+.button1 {
+    background-color: #28A745;
+    color: #fff;
+    top: 25%;
+    left: 45%;
+}
+
+.button2 {
+    background-color: #17A2B8;
+    color: #fff;
+    top: 32%;
+    left: 65%;
+}
+
+.button3 {
+    background-color: #DC3545;
+    color: #fff;
+    top: 45%;
+    left: 68%;
+}
+
+.button4 {
+    background-color: #96730a;
+    color: #fff;
+    top: 60%;
+    left: 62%;
+}
+
+.button5 {
+    background-color: #6F42C1;
+    color: #fff;
+    top: 68%;
+    left: 45%;
+}
+
+.button6 {
+    background-color: #0e926a;
+    color: #fff;
+    top: 58%;
+    left: 25%;
+}
+
+.button7 {
+    background-color: #E83E8C;
+    color: #fff;
+    top: 38%;
+    left: 25%;
+}
+
+.lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lines path {
+    transition: stroke-width 0.2s;
+}
+
+.map.open .lines {
+    opacity: 1;
+}
+
+.content-box {
+    display: none;
+    position: absolute;
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    cursor: grab;
+    opacity: 0;
+    transform: scale(0.7);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    user-select: none;
+    touch-action: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.all-click:active,
+.content-box:active {
+    cursor: grabbing;
+}
+
+.content-box h2 {
+    margin-bottom: 12px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.content-box h3 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 17px;
+}
+
+.content-box p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    text-align: left;
+    margin: 8px 0;
+}
+
+.content-box ul,
+.content-box ol {
+    margin-top: 5px;
+    padding-left: 22px;
+}
+
+.content-box li {
+    margin-bottom: 6px;
+    margin-bottom: 6px;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.emergency-warning {
+    font-weight: bold;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.content-box p,
+.content-box li,
+.content-box h2,
+.content-box h3 {
+    color: white;
+}
+
+.content-box p {
+    line-height: 1.5;
+}
+
+/* Responsividade */
+
+.map-button {
+    padding: clamp(12px, 2vw, 20px) clamp(16px, 3vw, 30px);
+    font-size: clamp(13px, 2vw, 16px);
+}
+
+.all-click {
+    padding: clamp(10px, 2vw, 20px) clamp(12px, 3vw, 30px);
+    font-size: clamp(12px, 1.8vw, 16px);
+}
+
+.content-box {
+    width: min(250px, calc(100vw - 30px));
+    padding: clamp(12px, 2vw, 20px);
+}
+
+.content-box h2 {
+    font-size: clamp(18px, 2.5vw, 24px);
+}
+
+.content-box h3 {
+    font-size: clamp(15px, 2vw, 17px);
+}
+
+.content-box p,
+.content-box li {
+    font-size: clamp(13px, 1.8vw, 16px);
+}
+
+
+@media (max-width: 600px) {
+
+    .map {
+        margin: 30px auto;
+        height: 750px;
+    }
+
+    .map-button {
+        padding: 12px 18px;
+    }
+
+    .all-click {
+        padding: 10px 12px;
+    }
+
+    .content-box {
+        width: calc(100vw - 30px);
+        max-width: 250px;
+    }
+
+    h1 {
+        top: 15px;
+        font-size: 1.6rem;
+        white-space: nowrap;
+    }
+
+    body > p {
+        top: 60px;
+        width: 90%;
+        font-size: 0.9rem;
+    }
+
+    .map-instruction {
+        top: 120px;
+        font-size: 0.7rem;
+    }
+    
+}
