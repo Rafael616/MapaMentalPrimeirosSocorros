@@ -27,7 +27,7 @@ h1 {
     z-index: 1;
     margin: 0;
     font-size: 2rem;
-    color: #333;
+    color: rgba(255, 0, 0, 0.863);
     text-align: center;
 }
 
@@ -267,6 +267,10 @@ footer {
     max-width: 600px;
 }
 
+.emergency-warning>span {
+    color: rgba(255, 0, 0, 0.863);
+}
+
 .content-box p,
 .content-box li,
 .content-box h2,
@@ -327,6 +331,7 @@ footer {
     .content-box {
         width: calc(100vw - 30px);
         max-width: 250px;
+        z-index: 2;
     }
 
     h1 {
